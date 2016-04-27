@@ -64,7 +64,9 @@
 					</div>
 				</div>
 				<div class="qa-message-content">
-					<input  class="form-control" id="write-timeline" data-id='{{user.id}}' placeholder="Write something ...">
+					<!-- <input  class="form-control" id="write-timeline" data-id='{{user.id}}' placeholder="Write something ..."> -->
+					<textarea class="form-control" id="write-timeline" data-id='{{user.id}}' placeholder="Write something ..."></textarea>
+					<button id="write-timeline_button" type="button" class="btn btn-primary">Post</button>
 				</div>
 			</div>
 		</div>
@@ -92,7 +94,7 @@
 							</div>
 						</div>
 						<div class="qa-message-content">
-							{{item.content}}
+							{{item.content|nl2br}}
 						</div>
 					</div>
 				</div>
@@ -124,6 +126,8 @@
 				</div>
 			</div>
 	</div><!-- wallmessages -->
+
+<hr>
 
 <div class="panel panel-info">
 	<div class="panel-heading">
@@ -233,39 +237,6 @@
 
 <script src="/assets/js/avatar_script.js"></script>
 
-
-<script>
-	$("#write-timeline").focus();
-	$("#write-timeline").keydown(function(event){
-		if(event.which==13){
-			if($(this).val()==""){
-				return false;
-			}
-			var params={
-				value:$(this).val(),
-				id:$(this).data('id'),
-			};
-
-			$.post('/ajax/add_timeline', params, function(data, textStatus, xhr) {
-				json_data = JSON.parse(data);
-				if(json_data.status==1){
-					$(".body-notify").text("");
-					$.each(json_data.data, function(index, val) {
-						var clon = $(".sample").clone();
-						clon.addClass('ele-item');
-						clon.removeClass('hidden');
-						clon.removeClass('sample');
-						clon.find(".qa-message-content").text(val.content);
-						$(".body-notify").append(clon);
-						
-					});
-					$("#write-timeline").val("");
-				}else{
-					alert("error");
-				}
-			});
-		}
-	});
-</script>
+<script src="/assets/js/timeline.js"></script>
 
 {% endblock %}

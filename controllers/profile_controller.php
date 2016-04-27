@@ -38,8 +38,10 @@
 			}else{
 				$status_page = "guest";
 			}
+			
+			$data_notify = Notify::all(["conditions"=>["user_id_to = ?",$id],"order"=>"id desc"]);
 
-			$this->assign("profile/index",compact("user","photos","like","status_page"));
+			$this->assign("profile/index",compact("user","photos","like","status_page","data_notify"));
 		}
 		public function search_user(){
 			$keyword = $this->get("keyword");

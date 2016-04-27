@@ -10,7 +10,7 @@
 						<div>{{item.username}}</div>
 					</td>
 					<td style="width:30%;" class="text-right">
-						<p><a href="/homepage/index?id={{item.id}}" class="btn btn-info"><i class="fa fa-eye"></i> View profile</a></p>
+						<p><a href="/profile?id={{item.id}}" class="btn btn-info"><i class="fa fa-eye"></i> View profile</a></p>
 						<p>
 							{% if status_f == 1 %}
 								<button type="button" class="btn btn-success friend-button status-wait" data-status="wait"><i class="fa fa-check"></i> Wait for confirm</button>

@@ -8,14 +8,7 @@
 		}
 
 		public function index(){
-			if($this->get("id")){
-				$id = $this->get("id");
-			}else{
-				$id = (int)$this->user_info->id;
-			}
-
-			$data_notify = Notify::all(["conditions"=>["user_id_to = ?",$id],"order"=>"id desc"]);
-			$this->assign("/homepage/index",compact("data_notify","id"));
+			redirect('/profile','refresh');
 		}
 
 		public function home() {

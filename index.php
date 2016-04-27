@@ -63,13 +63,11 @@ $s = microtime();
 		$controller_route = $detail_path[0];
 		$method_route = $detail_path[1];
 	}
-
 	$file_name_include = $controller_route."_controller";
 	if(!file_exists("./controllers/".$file_name_include.".php")){
 		redirect('/404');
 	}
 	require_once("./controllers/".$file_name_include.".php");
-	
 	$hs = new $file_name_include;
 	$hs->setting = new Setting;
 	if($method_route){

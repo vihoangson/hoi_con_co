@@ -1,6 +1,7 @@
 <?php 
 	$route["default_route"]  = "/homepage/index";
-
+	
+	$route["/timeline"]      = "/homepage/index";
 	$route["/login"]         = "/auth/login";
 	$route["/logout"]        = "/auth/logout";
 	$route["/do_login"]      = "/auth/do_login";

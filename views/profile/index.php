@@ -54,9 +54,6 @@
 				<li role="presentation">
 					<a href="#tab" aria-controls="tab" role="tab" data-toggle="tab"><i class="fa fa-picture-o"></i> Picture</a>
 				</li>
-				<li role="presentation" >
-					<a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-location-arrow"></i> Location</a>
-				</li>
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content">
@@ -116,15 +113,6 @@
 
 					</div>
 				</div>
-				<div role="tabpanel" class="tab-pane " id="location">
-					<hr>
-					{% set obj = twig_json_decode_location(user.position) %}
-					<div id="map-canvas" data-x="{{obj[0]}}" data-y="{{obj[1]}}" {% if status_page=="owner" %}data-option="modifi"{% endif %}></div>
-					{% if status_page=="owner" %}
-					<br>
-					<button type="button" class="btn btn-block btn-primary acceptSave">Save</button>
-					{% endif %}
-				</div>
 			</div>
 		</div>
 	</div>
@@ -151,12 +139,6 @@
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
-
-<!-- Block Google map -->
-<script src="/assets/js/my_map.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPIwOElsEmexvULARiURGO-jyS3WwprfU&libraries=places&callback=initMap" async defer></script>
-<!-- End block Google map -->
 
 <script src="/assets/js/edit_profile_script.js"></script>
 

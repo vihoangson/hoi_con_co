@@ -276,6 +276,26 @@
 				echo "false";
 			}
 		}
+
+		public function add_timeline(){
+			$notify =  new Notify;
+			$notify->content = xss_clean($this->post("value"));
+			$notify->user_id = $this->user_info->id;
+			$notify->user_id_to = (int)$this->post("id");
+			if($notify->save()){
+				$rs = Notify::all(["conditions"=>["user_id_to = ?",(int)$this->post("id")],"order"=>"id desc"]);
+				foreach ($rs as &$value) {
+					$value = $value->to_array();
+				}
+				$json["status"] = 1;
+				$json["data"] = $rs;
+				echo json_encode($json);
+			}else{
+				$json["status"] = 0;
+				$json["data"] = [];
+				echo json_encode($json);
+			}
+		}
 	}
 
 ?>

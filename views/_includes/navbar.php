@@ -8,7 +8,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">Lesson 3</a>
+			<a class="navbar-brand" href="/">Con cờ và những người bạn</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,7 +40,6 @@
 					{% else %}
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 					{% endif %}
-					
 					<ul class="dropdown-menu">
 						{% if user_info %}
 							<li><a href="/profile"><i class="fa fa-sticky-note-o"></i> My profile</a></li>
@@ -57,3 +56,4 @@
 		</div><!-- /.navbar-collapse -->
 	</div>
 </nav>
+`

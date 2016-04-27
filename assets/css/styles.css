@@ -1,0 +1,32 @@
+.ele-picture{
+  height:150px;
+  overflow: hidden;
+}
+.mark{
+  z-index: 2;
+  opacity: 0.4;
+  background: black;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left:0;
+}
+
+.dialog{
+  z-index: 4;
+  background: white;
+  position: fixed;
+  height: 50%;
+  width: 50%;
+  top:0;
+  left:0; 
+}
+
+table.table.table-hover td.thumbnail{
+  margin:0 !important;
+}
+
+table.table.table-hover td{
+  vertical-align: middle;
+}
